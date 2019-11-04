@@ -1,7 +1,7 @@
 const { Client } = require('pg');
 // database
 const client = new Client({
-  user:"postgres",
+  user:"lomash",
   password:"test123",
   host:"localhost",
   database:"insta"
@@ -11,12 +11,9 @@ client.connect()
 .catch(err=>console.log(err))
 
 function addUser(name,phone,email,password){
-    return new Promise(()=>{
-        client.query('SELECT * FROM user', (err, res) => {
-            // console.log(err, res)
-            client.end()
-          })
-    })
+  const text = 'INSERT INTO usertable(name, email, password) VALUES($1, $2, $3) RETURNING *'
+  const values = [name,email,password]
+  return client.query(text, values)
 }
 
 module.exports = addUser;

@@ -11,11 +11,10 @@ router.post('/submit', (req, res) => {
     // let { error } = validateUser(req);
     if (!error) {
         hashPassword(req.body.password).then((hashedPassword) =>
-            addUser(req.name,req.phone,req.email, hashedPassword)
+            addUser(req.body.name,req.body.phone,req.body.email, hashedPassword)
                 .then(() => console.log('successful added'))
                 .catch((err) => res.status(400).send(err.code))
         );
-
     } else {
         res.status(400).send(error.details[0].message);
     }

@@ -1,7 +1,7 @@
 const express = require('express');
 // const config = require('./db/config')
 const app = express();
-const port =4002;
+const port =4000;
 const exphbs = require('express-handlebars');
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine','handlebars');
