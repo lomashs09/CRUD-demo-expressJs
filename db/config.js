@@ -1,13 +1,20 @@
 const { Client } = require('pg');
-// temp database
-const client = new Client({
-  user:"postgres",
-  password:"test123",
-  host:"localhost",
-  database:"insta"
-})
-client.connect()
-.then(()=>console.log('connected successfully'))
-.catch(err=>console.log(err))
+const dotenv = require('dotenv');
+dotenv.config();
 
-module.export = client;
+//database
+const client = new Client({
+  user:process.env.user,
+  password:process.env.password,
+  host:process.env.host,
+  database:process.env.database
+})
+
+client.connect(err => {
+  if (err) {
+    console.error('connection error', err.stack)
+  } else {
+    console.log('connected to db')
+  }
+})
+module.exports= client;

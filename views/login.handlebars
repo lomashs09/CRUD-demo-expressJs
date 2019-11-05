@@ -1,0 +1,31 @@
+<div class="container register-form">
+    <div class="form">
+        <div class="note">
+            <p>Fill the Details to login</p>
+        </div>
+        <div class="form-content">
+            <form action="/home" method="POST">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="Email">Email:</label>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email *" value="" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password:</label>
+                            <input type="password" name="password" class="form-control" placeholder="Your Password *"
+                                value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" value="Submit" class="btnSubmit text-center">Submit</button>
+                </div>
+            </form><br />
+            <h6 class="text-warning">{{msg}}</h6>
+            <h3>Already signed in <a href="/">click here</a> to Register</h3>
+            
+        </div>
+
+    </div>
+</div>
