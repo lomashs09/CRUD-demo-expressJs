@@ -33,6 +33,7 @@ function createJwtSign(req, res) {
         username: req.body.name,
         email: req.body.email
     };
+    
     jwt.sign({ User }, process.env.secretkey, (err, token) => {
         req.headers["authorization"] = `bearer ${token}`
         if (err) {
