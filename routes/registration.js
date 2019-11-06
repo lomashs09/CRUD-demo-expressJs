@@ -19,7 +19,7 @@ router.post('/submit', (req, res) => {
         hashPassword(req.body.password).then((hashedPassword) =>
             addUser(req.body.name, req.body.phone, req.body.email, hashedPassword)
                 .then(() => {
-                    createJwtSign(req, res)
+                    createJwtSign(req, res);
                 })
                 .catch((err) => res.status(400).send(err.code))
         );
@@ -35,14 +35,13 @@ function createJwtSign(req, res) {
     };
     
     jwt.sign({ User }, process.env.secretkey, (err, token) => {
+         // setting token in headers 
         req.headers["authorization"] = `bearer ${token}`
         if (err) {
             console.log(err)
         }
         // setting token in Cookies
         setCookie(req,res,token);
-        // setting token in headers 
-
         res.redirect('/home')
     });
 }
@@ -51,7 +50,7 @@ function setCookie(req, res, token) {
         email:req.body.email,
         token: `Bearer ${token}`
     }
-    return res.cookie("userToken", usertoken);
+    return res.cookie("userData", usertoken);
 }
 
 function hashPassword(password) {

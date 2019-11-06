@@ -3,7 +3,6 @@ const app = express();
 var cookieParser = require('cookie-parser');
 const checkToken = require("./middleware/verifyToken").checkToken;
 const authenticateUser = require('./middleware/verifyToken').authenticateUser;
-
 const dotenv = require('dotenv');
 dotenv.config();
 // get port from env variable

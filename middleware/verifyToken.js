@@ -51,6 +51,5 @@ function authenticateUser(req, res, next) {
   }
 }
 
-
 module.exports.checkToken = checkToken;
 module.exports.authenticateUser = authenticateUser;

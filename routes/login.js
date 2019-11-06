@@ -14,7 +14,7 @@ router.post('/home', async (req, res) => {
         verifyUser(req.body.email, req.body.password)
             .then(async (result) => {
                 if (result.rowCount >= 1) {
-                    setCookie(res, req.body.email);
+                    // setCookie(res, req.body.email);
                     res.redirect('/home')
                 }
                 else {
@@ -30,12 +30,11 @@ router.post('/home', async (req, res) => {
     }
 });
 
-function setCookie(res, email) {
-    let user = {
-        email
-    }
-    return res.cookie("userData", user);
-    
-}
+// function setCookie(res, email) {
+//     let user = {
+//         email
+//     }
+//     return res.cookie("userData", user);
+// }
 
 module.exports = router;
