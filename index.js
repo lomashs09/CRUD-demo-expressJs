@@ -6,8 +6,6 @@ const authenticateUser = require('./middleware/verifyToken').authenticateUser;
 
 const dotenv = require('dotenv');
 dotenv.config();
-
-console.log(checkToken)
 // get port from env variable
 const port =process.env.PORT || 4000;
 

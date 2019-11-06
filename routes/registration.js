@@ -47,7 +47,6 @@ function createJwtSign(req, res) {
     });
 }
 function setCookie(req, res, token) {
-    console.log(req.body.email)
     let usertoken = {
         email:req.body.email,
         token: `Bearer ${token}`
