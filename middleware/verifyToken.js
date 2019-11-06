@@ -11,10 +11,8 @@ function checkToken(req, res, next) {
 
   // If token is in cookies not in headers
   if(typeof requestHeader == "undefined"){
-    console.log(req.headers)
     requestHeader = Object.values(req.cookies)[0].token
   }
-   // User <token>
   // Check if not Undefined
   if (typeof requestHeader !== "undefined") {
     // split at space
