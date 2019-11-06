@@ -35,6 +35,7 @@ function setCookie(res, email) {
         email
     }
     return res.cookie("userData", user);
+    
 }
 
 module.exports = router;

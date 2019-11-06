@@ -13,7 +13,6 @@ function checkToken(req, res, next) {
   if(typeof requestHeader == "undefined"){
     requestHeader = Object.values(req.cookies)[0].token
   }
-   // User <token>
   // Check if not Undefined
   if (typeof requestHeader !== "undefined") {
     // split at space
